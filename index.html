@@ -1,0 +1,75 @@
+---
+layout: default
+title: 我的博客
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .post-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .post-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .post-title {
+            font-size: 1.3em;
+            margin: 5px 0;
+        }
+        .post-link {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .post-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>我的博客</h1>
+    </header>
+    
+    <main>
+        <h2>文章列表</h2>
+        
+        {% if site.posts.size > 0 %}
+            <ul class="post-list">
+                {% for post in site.posts %}
+                <li class="post-item">
+                    <div class="post-date">{{ post.date | date: "%Y年%m月%d日" }}</div>
+                    <div class="post-title">
+                        <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>暂无文章。去 <code>_posts</code> 文件夹添加一些Markdown文件吧！</p>
+        {% endif %}
+        
+        <p class="rss-subscribe">订阅 <a href="{{ "/feed.xml" | relative_url }}">RSS</a></p>
+    </main>
+    
+    <footer>
+        <p>© {{ site.time | date: '%Y' }} 我的博客</p>
+    </footer>
+</body>
+</html>
