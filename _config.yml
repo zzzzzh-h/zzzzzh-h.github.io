@@ -1,3 +1,9 @@
-title: My blog
-include:
-  - _posts
+title: "My blog"
+baseurl: ""
+url: "https://zzzzzh-h.github.io"
+
+# 确保有以下主题设置
+theme: minima
+
+# 如果使用自定义布局，禁用主题
+# theme: null
