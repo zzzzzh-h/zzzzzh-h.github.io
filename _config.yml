@@ -1,1 +1,3 @@
 title: My blog
+include:
+  - _posts
